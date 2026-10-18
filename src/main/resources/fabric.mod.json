@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "agriculturebedrock",
+  "version": "${version}",
+  "name": "Agriculture Bedrock",
+  "description": "A mod that adds Category 1 and Category 2 plants.",
+  "authors": ["EnderDevelopment"],
+  "contact": {
+    "homepage": "https://enderdevelopment.com",
+    "sources": "https://github.com/EnderDevelopment/AgricultureBedrock"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.enderdevelopment.agriculturebedrock.AgricultureBedrockMod"
+    ]
+  },
+  "mixins": [
+    "agriculturebedrock.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "fabric-api": "*",
+    "minecraft": "1.20.4"
+  }
+}

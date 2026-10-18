@@ -1,0 +1,36 @@
+plugins {
+    id 'fabric-loom' version '1.4-SNAPSHOT'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'Fabric'
+        url = 'https://maven.fabricmc.net/'
+    }
+}
+
+extra {
+    apply plugin: 'fabric-loom'
+    loom {
+        minecraftVersion = project.property('minecraft_version')
+        loaderVersion = project.property('loader_version')
+        accessWidenerPath = file('src/main/resources/agriculturebedrock.accesswidener')
+    }
+}
+
+processResources {
+    inputs.property "version", project.property('mod_version')
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            groupId = project.property('maven_group')
+            artifactId = project.property('archives_base_name')
+            version = project.property('mod_version')
+        }
+    }
+}
